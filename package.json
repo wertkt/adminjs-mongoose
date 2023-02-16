@@ -11,8 +11,7 @@
     "cover": "jest --config ./test/jest.json --runInBand --coverage",
     "lint": "eslint './test/**/*.ts' './src/**/*.ts'",
     "check:all": "yarn lint && yarn build && yarn test",
-    "release": "semantic-release",
-    "postinstall" : "cd ./node_modules/@adminjs/mongoose && npm install -f && npm run build"
+    "release": "semantic-release"
   },
   "repository": {
     "type": "git",
