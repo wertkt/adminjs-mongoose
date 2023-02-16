@@ -12,7 +12,7 @@
     "lint": "eslint './test/**/*.ts' './src/**/*.ts'",
     "check:all": "yarn lint && yarn build && yarn test",
     "release": "semantic-release",
-    "postinstall" : "cd ./node_modules/@adminjs/mongoose && npm install && npm run build
+    "postinstall" : "cd ./node_modules/@adminjs/mongoose && npm install && npm run build"
   },
   "repository": {
     "type": "git",
