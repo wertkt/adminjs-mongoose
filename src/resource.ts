@@ -92,10 +92,16 @@ class Resource extends BaseResource {
       return new BaseRecord(Resource.stringifyId(mongooseObject), this)
     }
 
-    async findMany(ids: string[]) {
+    async findMany(ids: string[], { limit = 20, offset = 0, sort = {} }: FindOptions) {
+      const { direction, sortBy } = sort
+      const sortingParam = {
+        [sortBy]: direction,
+      }
       const mongooseObjects = await this.MongooseModel.find(
         { _id: ids },
-        {},
+         {
+          skip: offset, limit, sort: sortingParam,
+        },
       )
       return mongooseObjects.map(mongooseObject => (
         new BaseRecord(Resource.stringifyId(mongooseObject), this)
